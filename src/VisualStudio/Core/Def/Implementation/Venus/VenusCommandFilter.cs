@@ -90,7 +90,7 @@ namespace Microsoft.VisualStudio.LanguageServices.Implementation.Venus
                     // the one we care about.
                     // If there are no such spans, just return.
                     var surfaceSpan = WpfTextView.BufferGraph.MapUpToBuffer(subjectSpan, SpanTrackingMode.EdgeInclusive, textViewModel.DataBuffer)
-                                        .SingleOrDefault(x => x.IntersectsWith(span));
+                                        .FirstOrDefault(x => x.IntersectsWith(span));
 
                     if (surfaceSpan == default(SnapshotSpan))
                     {
